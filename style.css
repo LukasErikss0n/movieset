@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+html {
+    font-size: 62.5%;
+    font-family: "Roboto", sans-serif;
+}
+body {
+    overflow-x: hidden;
+    background-color: #e3e7eb;
+}
+.center-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #030303;
+    height: 11vh;
+}
+.hamburger {
+    display: none;
+}
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #b5b5b5;
+}
+.nav-menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+  
+.nav-item {
+    margin-left: 4rem;
+}
+  
+.nav-link {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #ffffff;
+}
+  
+.nav-link:hover {
+    color: #ffff;
+}
+  
+.nav-logo {
+    height: 2rem;
+    width: 10rem;
+    object-fit: cover;
+    object-position: center;
+}
+.side-show {
+    font-weight: bolder;
+}
+
+.search{
+    margin-left: auto;
+    margin-right: 4rem;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 9.7rem;
+      flex-direction: column;
+      background-color: #000000;
+      width: 100%;
+      transition: 0.3s;
+      z-index: 8;
+      position: absolute;
+      border-top: 1px solid red;
+    }
+    .nav-menu.active {
+      left: 0;
+    }
+  
+    .nav-item {
+      margin: 2.5rem 0;
+    }
+  
+    .hamburger {
+      display: block;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
