@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TimeWaster</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -26,7 +26,15 @@
           <li class="nav-item">
             <a href="#" class="nav-link">Contact</a>
           </li>
-          <li class="nav-item search">
+          <li class="nav-item search-logo">
+            <form id="form-search">
+              <input
+                type="text"
+                id="search"
+                class="search"
+                placeholder="Search"
+              />
+            </form>
             <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
           </li>
           <li class="nav-item">
@@ -46,18 +54,46 @@
     <main>
       <section>
         <div class="hero-image">
-            <div class="hero-infos">
-              <div>
-                <h1>Spiderman - Home coming</h1>
-                <div class="buttons-hompage">
-                  <a href="" class="button-hero">Play</a>
-                  <a href="" class="button-hero">Learn more</a>
-                </div>
+          <div class="hero-infos">
+            <div>
+              <h1>Spiderman - Home coming</h1>
+              <div class="buttons-hompage">
+                <a href="" class="button-hero button-black">Play</a>
+                <a href="" class="button-hero button-red">Learn more</a>
               </div>
             </div>
           </div>
+        </div>
       </section>
-      <section>
+      <section id="main-movie">
+        <div class="movie-card">
+          <img
+            src="img/judeus-samson-tI6m-AXpAsg-unsplash.jpg"
+            alt="spiderman next to a car"
+          />
+          <div class="movie-info">
+            <h3>Movie Tittle</h3>
+            <span class="review-green">9.8</span>
+          </div>
+          <div class="overview">
+            Lorem ipsum dolor sit amet consectetur adipisifuga totam quia
+            voluptas praesentium at accusamus eveniet dolor voluptate?
+          </div>
+        </div>
+        <div class="movie-card">
+          <img
+            src="img/judeus-samson-tI6m-AXpAsg-unsplash.jpg"
+            alt="spiderman next to a car"
+          />
+          <div class="movie-info">
+            <h3>Movie Tittle</h3>
+            <span class="review-green">9.8</span>
+          </div>
+          <div class="overview">
+            Lorem ipsum dolor sit amet consectetur adipisifuga totam quia
+            voluptas praesentium at accusamus eveniet dolor voluptate?
+          </div>
+        </div>
       </section>
     </main>
     <script
@@ -65,5 +101,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
+    <script src="movieAPL.js"></script>
   </body>
 </html>
