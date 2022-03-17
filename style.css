@@ -6,10 +6,14 @@
     box-sizing: border-box;
 }
 :root{
-    --primary-color:#22254b;
+    --primary-color:#171f4d;
     --secondary-color: #2d3481;
 }
-  
+
+::-webkit-scrollbar{
+    display: none;
+}
+
 html {
     font-size: 62.5%;
     font-family: "poppins", sans-serif;
@@ -35,7 +39,11 @@ a {
     justify-content: center;
     align-items: center;
 }
-
+.header{
+    z-index: 10;
+    position: relative;
+    background-color: #0709211c;
+}
 
 .navbar {
     display: flex;
@@ -91,26 +99,28 @@ a {
 .search-logo{
     margin-left: auto;
     margin-right: -1rem;
+    display: flex;
 }
 .search{
     background-color: transparent;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid #fcfcfcea;
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 1rem;
     color: #ffffff;
     font-family: inherit;
+    margin-right: 1rem;
 }
 .search:focus{
     outline: 0;
-    background-color: var(--primary-color);
+    background-color: rgb(192, 192, 192);
 }
 .search::placeholder{
-    color: #7378c5 ;
+    color: #ffffffa4 ;
 }
 
 .fa-user-circle{
-    color: rgb(160, 160, 160);
+    color: rgb(255, 255, 255);
     font-size: 23px;
     margin-right: 3rem;
 }
@@ -126,20 +136,22 @@ a {
     background-size: cover;
     background-position: center;
     height: 66vh;
-    
+    position: relative;
+    top: -11vh;    
+    -webkit-transition: 0.2s;
 }
 .hero-infos{
     display: flex;
     justify-content: flex-start;
     margin-left: 10rem;
     align-items: center;
-    height: 40vh;
+    height: 58vh;
     font-family: "raleway";
 }
 .hero-infos h1{
     font-family: "bebas neue";
     font-size: 30px;
-    color: #df2c24;
+    color: #ffffff;
     font-weight: bolder;
     letter-spacing: 3px;
 }
@@ -159,74 +171,149 @@ a {
 .button-black{
     background-color: black;
 }
-.button-red{
-    background-color: red;
+.button-blue{
+    background-color: #02d4fe;
 }
 
 .button-black:hover{
+    background-color: #02d4fe;
+}
+.button-blue:hover{
+    background-color: black;
+}
+.button-red{
     background-color: red;
 }
 .button-red:hover{
-    background-color: black;
+    background-color: #02d4fe;
 }
 
 /*Movie api*/
 #main-movie{
    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
+   overflow-x: scroll;
+   scroll-behavior: smooth;
+}
+#drama-movie{
+    display: flex;
+     flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+#best2010-movie{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth
+}
+#search-result{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth
+}
+
+
+.movie-genre{
+    color: rgb(0 213 255);
+    font-size: 1.3rem;
+    margin-left: 1rem;
 }
 
 .movie-card{
-    width: 300px;
+    width: 17vw; 
     margin: 1rem;
     border-radius: 3px;
-    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
-    background-color: var(--secondary-color);
-    position: relative;
-    overflow: hidden;
 }
 
 .movie-card img{
-    width: 100%;
+    width: 15vw;
+    height: 100%;
 }
 
-.movie-info{
-    color: white;
+.popular-flez{
     display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem 1rem;
-    letter-spacing: 0.5px;
 }
 
-.movie-info h3{
-    margin-top: 0;
+.popular-genre{
+    color: white;
+    font-size: 4rem;
+    margin-left: 7rem;
 }
 
-.movie-info span{
+
+
+.movie-information img{
+    width: 62vw;
+    height: 41vh;
+    object-fit: cover;
+    max-width: 600px;
+}
+.movie-specification{
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.movie-information {
+    width: 62vw;
+    color: rgb(3, 4, 49);
+    font-size: 1.5rem;
+    background-color: var(--secondary-color);
+    max-width: 600px;
+}
+.movie-information p{
+    padding: 2rem;
+    width: 31vw;
+    color: white;
     background-color: var(--primary-color);
-    padding: 0.25rem 0.5rem;
-    border-radius: 3px;
-    font-weight: bold;
+    margin: 1rem;
 }
 
-.movie-info span.review-green{
+.movie-information span.review-green{
     color: rgb(16, 245, 16);
 }
-.movie-info span.review-orange{
+.movie-information span.review-orange{
     color: rgb(240, 156, 0);
 }
-.movie-info span.review-red{
+.movie-information span.review-red{
     color: rgb(255, 53, 2);
 }
+.movie-tittle-review{
+    font-size: 2rem;
+    margin-right: 2rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 1rem;
+}
+.movie-tittle-review h2{
+    color: white;
+    margin-left: 2rem;
+}
 
-/*https://www.youtube.com/watch?v=9Bvt6BFf6_U
-time: 16.35
-*/
+.review-background{
+    background-color: var(--primary-color);
+    padding: 0.25rem 1rem;
+    border-radius: 9px;
+}
 
+.button-styling{
+    color: white;
+    font-weight: bolder;
+    border-radius: 4px;
+    padding: 5px 20px;
+    font-size: 20px;
+    height: 5vh;
+    margin: 2rem;
+}
+.movie-overview-button{
+    display: flex;
+    justify-content: space-between;
 
-
+}
 
 
 
@@ -240,9 +327,9 @@ time: 16.35
     .nav-menu {
       position: fixed;
       left: -100%;
-      top: 9.7rem;
+      top: 4.7rem;
       flex-direction: column;
-      background-color: #d62121;
+      background-color: var(--secondary-color);
       width: 100%;
       transition: 0.3s;
       z-index: 8;
@@ -261,6 +348,7 @@ time: 16.35
       display: block;
       cursor: pointer;
       margin-left: auto;
+      background-color: var(--primary-color);
     }
     .hamburger.active .bar:nth-child(2) {
       opacity: 0;
@@ -273,10 +361,46 @@ time: 16.35
     .hamburger.active .bar:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
     }
+    .hero-infos{
+        height: 46vh;
+        margin-left: 4rem;
+    }
     .hero-image{
         height: 39vh;
     }
     .hero-infos h1{
         font-size: 30px;
+    }
+    .search{
+        border: 2px solid var(--primary-color);
+    }
+    .nav-logo{
+        height: 4rem;
+        width: 17rem;
+    }
+    .movie-specification{
+        margin-top: 0px;
+
+    }
+    .movie-information{
+        height: 61vh;
+        width: 100%;
+    }
+    .movie-information img{
+        width: 100%;
+        height: 19vh;
+    }
+    .movie-overview-button{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 2rem;
+    }
+    .movie-information p{
+        width: 89vw;
+        margin: 1rem;
+        height: 26vh;
+    }
+    .button-styling{
+        margin: 1rem 4rem;
     }
 }
