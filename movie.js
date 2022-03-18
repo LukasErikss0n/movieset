@@ -3,7 +3,7 @@ const baseUrl = "https://api.themoviedb.org/3";
 const imgUrl = "https://image.tmdb.org/t/p/w500";
 
 const popularApiMovies =
-  baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey; //fixa till alla olika genre som ska finnas
+  baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey;
 const bestDramaApiMovies =
   baseUrl +
   "/discover/movie?with_genres=18&primary_release_year=2014&" +
@@ -16,6 +16,7 @@ const willFerriBestMovie =
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
 const sectionBestmovies = document.getElementById("best2010-movie");
+const movieCardSpecification = document.getElementById("specification-card");
 
 const formSearch = document.getElementById("form-search");
 const search = document.getElementById("search");
@@ -25,65 +26,43 @@ const popularGenre = document.getElementById("popular-genre");
 function getApiMovies(url, container) {
   fetch(url)
     .then((res) => res.json())
-    .then((data) => {
-      console.log(data.resutls);
+    .then(function (data) {
+      console.log(data.results);
       showMovies(data.results, container);
     });
 }
 
 const popularContainer = document.getElementById("main-movie");
 getApiMovies(popularApiMovies, popularContainer);
+
 const dramaContainer = document.getElementById("drama-movie");
 getApiMovies(bestDramaApiMovies, dramaContainer);
+
 const willFerriBestMovieContainer = document.getElementById("best2010-movie");
 getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 
 function showMovies(movies, container) {
-  console.log(container);
-
-  movies.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
+  movies.forEach(function (movie) {
+    const movieId = movie.id;
+    const { title, poster_path, backdrop_path, vote_average, overview, release_date } =
+      movie;
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie-card");
     movieEl.innerHTML = `
-        
-        <a href = "specification.html"><img
-        src="${imgUrl + poster_path}"
-        alt="${title}"
-        /></a>
-        <div class="movie-info">
-
-
+        <img class="movie-image" src="${imgUrl + poster_path}"alt="${title}"/>
+        <div class="movie-information">
+            <img class = "movie-backdrop" src="${imgUrl + backdrop_path}" alt="${title}">
+            <h2>${title}<h2>
+            <p class ="relase-date">${release_date}</p>
+            <p class ="overview">${overview}</p>
+            <span class = ${getRatingColor()}>${vote_average}</span>
+          
+        </div>
          `;
 
     container.appendChild(movieEl);
+    //console.log(movieId);
   });
-}
-
-function moreAboutMovie(){
-    innerHTML = `
-    
-    <div class="movie-specification">
-            <div class="movie-information">
-                <img
-                    src="${imgUrl+poster_path}"
-                    alt="${title}"
-                />
-                <div class="movie-tittle-review">
-                    <h2>${title}</h2>
-                    <div class="review-background">
-                    <span class="${getRatingColor(vote_average)}">${vote_average}</span>
-                    </div>
-                </div>
-                <div class="movie-overview-button">
-                    <p>${overview}</p>
-                    <a class="button-blue button-styling" href="#">Play</a>
-                    <a class="button-red button-styling" href="index.html">Return</a>
-                </div>
-            </div>
-        </div>
-    
-    `
 }
 
 function getRatingColor(vote) {
@@ -109,3 +88,9 @@ search.addEventListener("keydown", (e) => {
     }
   }
 });
+
+document.body.onclick = (event) => {
+  if (event.target.classList.contains("movie-image")) {
+    event.target.parentElement.children[1].style.display = "inline";
+  }
+};
