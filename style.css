@@ -246,17 +246,20 @@ a {
 
 
 
-.movie-information span.review-green{
+.review-green{
     color: rgb(16, 245, 16);
+    margin-right: 1rem;
 }
-.movie-information span.review-orange{
+.review-orange{
     color: rgb(240, 156, 0);
+    margin-right: 1rem;
 }
-.movie-information span.review-red{
+.review-red{
     color: rgb(255, 53, 2);
+    margin-right: 1rem;
 }
 
-.movie-information {
+ .movie-information {
     display: none;
     position: fixed;
     top: 0;
@@ -267,14 +270,81 @@ a {
     color: #fff;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
+
+.movie-information-card{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1vw 4vw;
+}
+
 .movie-backdrop{
-    width: 84%;
     height: 54vh;
-    margin: 1rem 10rem;
     object-fit: cover;
     object-position: center;
 }
+
+.movie-overview-info{
+    background-color: #000000d4;
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+
+}
+
+.tittle-and-button{
+    position: fixed;
+    margin-left: 5vw;
+    margin-bottom: 14vh;
+}
+
+.tittle{
+    font-size: 40px;
+    margin-bottom: 2vh;
+    font-family: "Raleway";
+}
+
+.button-play{
+    padding: 11px 51px;
+    font-size: 18px;
+    background-color: #02d4fe;
+    border-radius: 11px;
+}
+
+.button-play:hover{
+    background-color: black;
+}
+
+.fa-play-circle{
+    margin-right: 2px;
+}
+
+.relase-date{
+    color: lightgrey;
+    margin-top: 1vh;
+    font-size: 16px;
+    margin-left: 2vw;
+}
+
+.overview{
+    margin-left: 2vw;
+    font-size: 20px;
+    margin-top: 1vh;
+}
+.age-limit{
+    color: rgb(252, 252, 252);
+    margin-left: 2vw;
+}
+
+
+
+
+
+
+/*
+
 .movie-information h2{
     font-size: 4rem;
     margin: 1rem;
@@ -282,15 +352,29 @@ a {
 }
 .overview{
     font-size: 2rem;
-    width: 50vw;
+    width: 69vw;
     margin: 1rem;
-    margin-left: 1rem;
+    margin-left: -4rem;
 }
-.relase-date{
-    color: lightgrey;
-    font-size: 1.5rem;
-    margin-left: 2rem;
+
+
+
+
+.close-info-p{
+    z-index: 10;
+    font-size: 33px;
+    margin-top: -54vh;
+    background-color: black;
+    height: 49px;
+    padding: 0rem 2rem;
+    border-radius: 66px;
+    cursor: pointer;
 }
+.close-info{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20vh;
+} */
 
 
 
@@ -349,5 +433,31 @@ a {
         height: 4rem;
         width: 17rem;
     }
+
+    /* .movie-backdrop{
+        width: 90%;
+        margin: 1vw 5vw;
+    }
+    .close-info{
+        margin-right: 4vw;
+    }
+    .close-info-p{
+        margin-top: -53vh;
+    }
+    .movie-overview-info{
+        margin-top: -29vh;
+        margin-left: 3vw;
+        width: 90%;
+    }
+    .movie-information h2{
+        margin-left: 4vw;
+    }
+    .relase-date{
+        margin-left: 0vw;
+        margin-top: 7vh;
+    }
+    .overview{
+        margin-left: 1vw;
+    } */
     
 }

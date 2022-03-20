@@ -13,6 +13,7 @@ const willFerriBestMovie =
   "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&" +
   apiKey;
 
+
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
 const sectionBestmovies = document.getElementById("best2010-movie");
@@ -44,19 +45,29 @@ getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
     const movieId = movie.id;
-    const { title, poster_path, backdrop_path, vote_average, overview, release_date } =
+    const { title, poster_path, backdrop_path, vote_average, overview, release_date, adult } =
       movie;
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie-card");
     movieEl.innerHTML = `
+       
         <img class="movie-image" src="${imgUrl + poster_path}"alt="${title}"/>
         <div class="movie-information">
+            <div class = "movie-information-card">
+            <div class ="close-info">
+             <p class ="close-info-p">X</p>
+            </div>
             <img class = "movie-backdrop" src="${imgUrl + backdrop_path}" alt="${title}">
-            <h2>${title}<h2>
-            <p class ="relase-date">${release_date}</p>
-            <p class ="overview">${overview}</p>
-            <span class = ${getRatingColor()}>${vote_average}</span>
-          
+            <div class ="tittle-and-button">
+                <h2 class="tittle">${title}<h2>
+                <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
+            </div>
+            <div class ="movie-overview-info">
+                <p class ="relase-date"><span class = ${getRatingColor(vote_average)}>${vote_average} Vote avrage</span>Relase date: ${release_date}<span class="age-limit">${whoCanWatch()}</span></p>
+                <p class ="overview">${overview}</p>
+               
+            </div>
+            </div>
         </div>
          `;
 
@@ -75,6 +86,14 @@ function getRatingColor(vote) {
   }
 }
 
+function whoCanWatch(adult){
+    if(adult === true){
+        return "18+" ;
+    } else{
+        return "3+" ;
+    }
+}
+
 console.log("form", formSearch);
 search.addEventListener("keydown", (e) => {
   e.preventDefault();
@@ -89,8 +108,15 @@ search.addEventListener("keydown", (e) => {
   }
 });
 
-document.body.onclick = (event) => {
+document.body.onclick = function(event){
+    console.log(event.target.parentElement.children[1])
   if (event.target.classList.contains("movie-image")) {
+     
     event.target.parentElement.children[1].style.display = "inline";
-  }
+    
+  }else if(event.target.classList.contains("close-info-p")){
+    event.target.parentElement.parentElement.style.display = "none";
+  } 
 };
+
+//event.target.parentElement[1].style.display = "none";
