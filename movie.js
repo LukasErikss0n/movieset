@@ -4,7 +4,7 @@ const imgUrl = "https://image.tmdb.org/t/p/w500";
 const backdropUrl = "https://image.tmdb.org/t/p/original";
 
 const popularApiMovies =
-  baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey;
+  baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey; //Hämtar Api för det olika kategorierna för att använda datan
 const bestDramaApiMovies =
   baseUrl +
   "/discover/movie?with_genres=18&primary_release_year=2014&" +
@@ -14,27 +14,28 @@ const willFerriBestMovie =
   "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&" +
   apiKey;
 
-
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
 const sectionBestmovies = document.getElementById("best2010-movie");
 const movieCardSpecification = document.getElementById("specification-card");
+const searchContainer = document.getElementById("search-container");
+const searchUrl = baseUrl + "/search/movie?query=";
 
 const formSearch = document.getElementById("form-search");
 const search = document.getElementById("search");
-const searchUrl = baseUrl + "/search/movie?" + apiKey;
+
 const popularGenre = document.getElementById("popular-genre");
 
 function getApiMovies(url, container) {
   fetch(url)
     .then((res) => res.json())
     .then(function (data) {
-      console.log(data.results);
+      console.log(data.results); //ta bort sen
       showMovies(data.results, container);
     });
 }
 
-const popularContainer = document.getElementById("main-movie");
+const popularContainer = document.getElementById("main-movie"); //skickar in vart en viss api ska hamna
 getApiMovies(popularApiMovies, popularContainer);
 
 const dramaContainer = document.getElementById("drama-movie");
@@ -45,8 +46,15 @@ getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
-    const { title, poster_path, backdrop_path, vote_average, overview, release_date, adult } =
-      movie;
+    const {
+      title,
+      poster_path,
+      backdrop_path,
+      vote_average,
+      overview,
+      release_date,
+      adult,
+    } = movie; //kallar på datan som jag vill använda från arrayn
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie-card");
     movieEl.innerHTML = `
@@ -57,13 +65,19 @@ function showMovies(movies, container) {
             <div class ="close-info">
              <p class ="close-info-p">X</p>
             </div>
-            <img class = "movie-backdrop" src="${backdropUrl + backdrop_path}" alt="${title}">
+            <img class = "movie-backdrop" src="${
+              backdropUrl + backdrop_path
+            }" alt="${title}">
             <div class ="tittle-and-button">
                 <h2 class="tittle">${title}<h2>
                 <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
             </div>
             <div class ="movie-overview-info">
-                <p class ="relase-date"><span class = ${getRatingColor(vote_average)}>${vote_average} Vote avrage</span>Relase date: ${release_date}<span class="age-limit">${whoCanWatch()}</span></p>
+                <p class ="relase-date"><span class = ${getRatingColor(
+                  vote_average
+                )}>${vote_average} Vote avrage</span>Relase date: ${release_date}<span class="age-limit">${whoCanWatch(
+      adult
+    )}</span></p>
                 <p class ="overview">${overview}</p>
                
             </div>
@@ -71,7 +85,7 @@ function showMovies(movies, container) {
         </div>
          `;
 
-    container.appendChild(movieEl);
+    container.appendChild(movieEl); //här lägs html kod till ^ i en specifik kontainer(beror på vad jag skickar in i getApimovies andra parameter)
   });
 }
 
@@ -85,39 +99,38 @@ function getRatingColor(vote) {
   }
 }
 
-function whoCanWatch(adult){
-    if(adult === true){
-        return "18+" ;
-    } else{
-        return "3+" ;
-    }
+function whoCanWatch(adult) {
+  if (adult === true) {
+    return "18+";
+  } else {
+    return "3+";
+  }
 }
 
-console.log("form", formSearch);
-search.addEventListener("keydown", (e) => {
-  e.preventDefault();
-  console.log(e);
 
-  if (e.key === "enter") {
-    const searchTerm = search.value;
+search.onkeydown = function(event){
+    searchContainer.innerHTML = "";
+    if (event.key === "Enter"){
+        event.preventDefault()
+        let searchTerm = search.value
+        const searchResult = searchUrl + searchTerm + "&" + apiKey;
+        getApiMovies(searchResult, searchContainer);
+    } 
+}
 
-    if (searchTerm) {
-      getApiMovies(searchUrl + "&query=" + searchTerm); //där search term ska liga i en container//);
-    }
-  }
-});
 
-document.body.onclick = function(event){
-    console.log(event.target.parentElement.children[1])
+document.body.onclick = function (event) {
+  //här kommer ett movie-card fram när man klickar på bilderna i sidan för att få upp mer info om just den filmen
   if (event.target.classList.contains("movie-image")) {
+
     event.target.parentElement.children[1].style.display = "inline";
+    event.target.parentElement.children[1].style.position = "fixed";
     document.body.style.overflowY = "hidden";
-    
-  }else if(event.target.classList.contains("close-info-p")){
-    event.target.parentElement.parentElement.style.display = "none";
-    event.target.parentElement.parentElement.parentElement.style.position = "inherit";
+  } else if (event.target.classList.contains("close-info-p")) {
+
+    event.target.parentElement.parentElement.parentElement.style.display =
+      "none";
+    event.target.parentElement[2].style.position = "inherit";
     document.body.style.overflowY = "scroll";
-  } 
+  }
 };
-
-

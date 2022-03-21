@@ -208,7 +208,7 @@ a {
     overflow-x: scroll;
     scroll-behavior: smooth
 }
-#search-result{
+#search-container{
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
