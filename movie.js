@@ -1,6 +1,7 @@
 const apiKey = "api_key=1a08c634ec1bc9d64558c15c3e88cdbf";
 const baseUrl = "https://api.themoviedb.org/3";
 const imgUrl = "https://image.tmdb.org/t/p/w500";
+const backdropUrl = "https://image.tmdb.org/t/p/original";
 
 const popularApiMovies =
   baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey;
@@ -44,7 +45,6 @@ getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
-    const movieId = movie.id;
     const { title, poster_path, backdrop_path, vote_average, overview, release_date, adult } =
       movie;
     const movieEl = document.createElement("div");
@@ -57,7 +57,7 @@ function showMovies(movies, container) {
             <div class ="close-info">
              <p class ="close-info-p">X</p>
             </div>
-            <img class = "movie-backdrop" src="${imgUrl + backdrop_path}" alt="${title}">
+            <img class = "movie-backdrop" src="${backdropUrl + backdrop_path}" alt="${title}">
             <div class ="tittle-and-button">
                 <h2 class="tittle">${title}<h2>
                 <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
@@ -72,7 +72,6 @@ function showMovies(movies, container) {
          `;
 
     container.appendChild(movieEl);
-    //console.log(movieId);
   });
 }
 
@@ -111,12 +110,14 @@ search.addEventListener("keydown", (e) => {
 document.body.onclick = function(event){
     console.log(event.target.parentElement.children[1])
   if (event.target.classList.contains("movie-image")) {
-     
     event.target.parentElement.children[1].style.display = "inline";
+    document.body.style.overflowY = "hidden";
     
   }else if(event.target.classList.contains("close-info-p")){
     event.target.parentElement.parentElement.style.display = "none";
+    event.target.parentElement.parentElement.parentElement.style.position = "inherit";
+    document.body.style.overflowY = "scroll";
   } 
 };
 
-//event.target.parentElement[1].style.display = "none";
+
