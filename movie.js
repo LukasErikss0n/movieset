@@ -14,6 +14,8 @@ const willFerriBestMovie =
   "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&" +
   apiKey;
 
+
+const seconHero = document.getElementById("hero-section");
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
 const sectionBestmovies = document.getElementById("best2010-movie");
@@ -43,6 +45,8 @@ getApiMovies(bestDramaApiMovies, dramaContainer);
 
 const willFerriBestMovieContainer = document.getElementById("best2010-movie");
 getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
+
+
 
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
@@ -107,43 +111,59 @@ function whoCanWatch(adult) {
   }
 }
 
-
-
 search.onkeydown = function (event) {
   searchContainer.innerHTML = "";
   if (event.key === "Enter") {
     event.preventDefault();
+    doSearch();
+  }
+};
+
+function doSearch() {
+  if (search.value === "") {
+    hideSearchResultH2();
+  } else {
     let searchTerm = search.value;
     const searchResult = searchUrl + searchTerm + "&" + apiKey;
     getApiMovies(searchResult, searchContainer);
     showSearchResultH2();
   }
+}
+
+let searchSymbol = document.getElementById("search-symbol");
+
+searchSymbol.onclick = function (event) {
+  console.log("hej");
+  event.preventDefault();
+
+  doSearch();
 };
 
 function showSearchResultH2() {
   showH2.style.display = "block";
 }
 
+function hideSearchResultH2() {
+  showH2.style.display = "none";
+}
+
 document.body.onclick = function (event) {
-  //här kommer ett movie-card fram när man klickar på bilderna i sidan för att få upp mer info om just den filmen
   if (event.target.classList.contains("movie-image")) {
-    event.target.parentElement.children[1].style.display = "inline";
-    event.target.parentElement.children[1].style.position = "fixed";
+    let movieInformationDiv = event.target.parentElement.children[1];
+    movieInformationDiv.style.display = "inline";
+    movieInformationDiv.style.position = "fixed";
     document.body.style.overflowY = "hidden";
   } else if (event.target.classList.contains("close-info-p")) {
-    event.target.parentElement.parentElement.parentElement.style.display =
-      "none";
+    event.target.closest(".movie-information").style.display = "none";
     document.body.style.overflowY = "scroll";
-    event.target.parentElement[2].style.position = "inherit";
+    event.target.closest(".movie-information-card").style.position = "inherit";
   } else if (
     event.target.classList.contains("movie-backdrop") === false &&
-    event.target.classList.contains("movie-overview-info") === false 
+    event.target.classList.contains("movie-overview-info") === false
   ) {
     if (event.target.classList.contains("movie-information")) {
       event.target.style.display = "none";
       document.body.style.overflowY = "scroll";
     }
-
-    
   }
 };
