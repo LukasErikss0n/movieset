@@ -23,7 +23,7 @@ const searchUrl = baseUrl + "/search/movie?query=";
 
 const formSearch = document.getElementById("form-search");
 const search = document.getElementById("search");
-
+const showH2 = document.getElementById("search-h2");
 const popularGenre = document.getElementById("popular-genre");
 
 function getApiMovies(url, container) {
@@ -108,29 +108,42 @@ function whoCanWatch(adult) {
 }
 
 
-search.onkeydown = function(event){
-    searchContainer.innerHTML = "";
-    if (event.key === "Enter"){
-        event.preventDefault()
-        let searchTerm = search.value
-        const searchResult = searchUrl + searchTerm + "&" + apiKey;
-        getApiMovies(searchResult, searchContainer);
-    } 
-}
 
+search.onkeydown = function (event) {
+  searchContainer.innerHTML = "";
+  if (event.key === "Enter") {
+    event.preventDefault();
+    let searchTerm = search.value;
+    const searchResult = searchUrl + searchTerm + "&" + apiKey;
+    getApiMovies(searchResult, searchContainer);
+    showSearchResultH2();
+  }
+};
+
+function showSearchResultH2() {
+  showH2.style.display = "block";
+}
 
 document.body.onclick = function (event) {
   //här kommer ett movie-card fram när man klickar på bilderna i sidan för att få upp mer info om just den filmen
   if (event.target.classList.contains("movie-image")) {
-
     event.target.parentElement.children[1].style.display = "inline";
     event.target.parentElement.children[1].style.position = "fixed";
     document.body.style.overflowY = "hidden";
   } else if (event.target.classList.contains("close-info-p")) {
-
     event.target.parentElement.parentElement.parentElement.style.display =
       "none";
-    event.target.parentElement[2].style.position = "inherit";
     document.body.style.overflowY = "scroll";
+    event.target.parentElement[2].style.position = "inherit";
+  } else if (
+    event.target.classList.contains("movie-backdrop") === false &&
+    event.target.classList.contains("movie-overview-info") === false 
+  ) {
+    if (event.target.classList.contains("movie-information")) {
+      event.target.style.display = "none";
+      document.body.style.overflowY = "scroll";
+    }
+
+    
   }
 };
