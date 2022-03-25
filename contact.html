@@ -60,40 +60,32 @@
       </nav>
     </header>
     <main>
-      <section id="hero-section">
-        <div class="hero-image">
-          <div class="hero-infos">
-            <div>
-              <h1>Spiderman - Home coming</h1>
-              <div class="buttons-hompage">
-                <a class ="button-black"><i class="fas fa-play-circle"></i>Play</a>
-                <a href="" class=" button-blue">Learn more</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div  class="movie-genre">
-        <h2 id ="search-h2">Search Result</h2>
-      </div>
-      <section id="search-container">
+        <div class="contact-wrapper">
+            <form class="contact-form">
+                <label for="fname">First Name:</label><br>
+                <input type="text" name="fname" placeholder="Ex) Lukas Eriksson">
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" placeholder="Ex) TimWaster@outlook.com">
 
-      </section>
-      <div class="movie-genre">
-        <h2>Popular</h2>
-        <div id="popular-genre"></div>
-      </div>
-      <section id="main-movie">
-      </section>
-      <div class="movie-genre">
-        <h2>Drama</h2>
-      </div>
-      <section id="drama-movie"></section>
-      <section>
-      <div class="movie-genre">
-        <h2>Will ferris best comedies</h2>
-      </div>
-      <section id="best2010-movie"></section>
+                <label for="problem">What is it about?</label><br>
+                
+                <label for="problem">Problem on site</label><br>
+                <input type="radio" name="fav_language" value="problem">
+                <label for="account">Login to account</label>
+                <input type="radio" name="fav_language" value="account">
+                <label for="other">Other</label>
+                <input type="radio" name="fav_language" value="other" >
+
+
+
+                <textarea name="subject" placeholder="Description"></textarea>
+                <input type="button" onclick="alert('Hello World!')" value="Submit!">
+                <input type="reset">
+
+
+
+            </form>
+        </div>
     </main>
     <footer id="footer">
       <div class="wrapper-footer-info">
@@ -125,10 +117,9 @@
           <i class="fab fa-youtube"></i>
           <p>TimWaster©2022</p>
         </div>
-
       </div>
     </footer>
     <script src="script.js"></script>
-    <script src="movie.js"></script>
   </body>
 </html>
+

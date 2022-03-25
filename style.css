@@ -261,7 +261,7 @@ a {
     margin-right: 1rem;
 }
 
- .movie-information {
+.movie-information {
     display: none;
     position: fixed;
     top: 0;
@@ -338,6 +338,7 @@ a {
     margin-left: 2vw;
     font-size: 20px;
     margin-top: 1vh;
+    overflow-y: scroll;
 }
 .age-limit{
     color: rgb(252, 252, 252);
@@ -404,6 +405,91 @@ a {
     display: none;
 }
 
+#footer{
+    height: 27vh;
+}
+
+.wrapper-footer-info{
+    display: flex;
+    color: #037eb1;
+    flex-direction: row;
+}
+
+.wrapper-footer-info h3{
+    color: #10b2fa;
+    font-size: 25px;
+    margin-top: 5vh;
+}
+
+.list-footer{
+    margin-left: 5vw;
+    font-size: 12px;
+}
+
+.list-footer p{
+    width: 30vw;
+}
+
+.list-footer ul li{
+    cursor: pointer;
+}
+
+.social-footer{
+    font-size: 33px;
+    margin-top: 10vh;
+    color: #037eb1;
+    background-color: #1418436e;
+    padding: 1px 20px;
+    margin-left: 5vw;
+    border-radius: 9px;
+}
+
+.social-footer p{
+    font-size: 14px;
+}
+
+.social-footer i{
+    cursor: pointer;
+}
+
+.contact-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    padding: 2rem 5rem;
+}
+
+.contact-form label{
+    color: #11b1fa;
+    font-size: 14px;
+    margin-top: 1vh;
+}
+
+.contact-form input{
+    padding: 4px 13px;
+    border: 2px solid var(--primary-color);
+    border-radius: 2px;
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1190px){
+    .wrapper-footer-info{
+        width: 95vw;
+    }
+}
+
+
 @media only screen and (max-width: 768px) {
     .nav-menu {
       position: fixed;
@@ -417,6 +503,7 @@ a {
       position: absolute;
       border-top: 1px solid rgb(0, 0, 0);
     }
+
     .nav-menu.active {
       left: 0;
     }
@@ -431,6 +518,7 @@ a {
       margin-left: auto;
       background-color: var(--primary-color);
     }
+
     .hamburger.active .bar:nth-child(2) {
       opacity: 0;
     }
@@ -442,19 +530,24 @@ a {
     .hamburger.active .bar:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
     }
+
     .hero-infos{
         height: 46vh;
         margin-left: 4rem;
     }
+
     .hero-image{
         height: 39vh;
     }
+
     .hero-infos h1{
         font-size: 30px;
     }
+
     .search{
         border: 2px solid var(--primary-color);
     }
+
     .nav-logo{
         height: 4rem;
         width: 17rem;
@@ -466,6 +559,28 @@ a {
 
     .movie-image{
         width: 16vw;
+    }
+
+    .tittle{
+        font-size: 43px;
+    }
+
+    .wrapper-footer-info{
+        flex-direction: column;
+    }
+
+    .social-footer{
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+        width: 42vw;
+    }
+
+    #footer{
+        margin-left: 8vw;
+    }
+
+    .tittle-and-button{
+        margin-bottom: 41vh;
     }
     
 }
