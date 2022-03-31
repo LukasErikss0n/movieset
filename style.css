@@ -11,8 +11,24 @@
     --secondary-color: #2d3481;
 }
 
-::-webkit-scrollbar{
+body::-webkit-scrollbar{
     display: none;
+}
+
+#search-container::-webkit-scrollbar{
+    display: none;
+}
+
+
+section::-webkit-scrollbar {
+    height: 10px;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+}
+
+section::-webkit-scrollbar-thumb {
+    background: rgb(62, 108, 206);
+    width: 10px;
 }
 
 html {
@@ -23,6 +39,9 @@ body {
     overflow-x: hidden;
     background-color: var(--primary-color);
     font-family: 'poppins', sans-serif;
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .center-item {
     display: flex;
@@ -166,8 +185,8 @@ a {
 }
 .buttons-hompage{
     display: flex;
-    gap: 26px;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    justify-content: space-between;
 }
 
 .button-black{
@@ -191,36 +210,20 @@ a {
 }
 
 /*Movie api*/
-#main-movie{
-   display: flex;
-    flex-direction: row;
-   overflow-x: scroll;
-   scroll-behavior: smooth;
-}
-#drama-movie{
+
+.movie-section{
     display: flex;
-     flex-direction: row;
+    flex-direction: row;
     overflow-x: scroll;
     scroll-behavior: smooth;
-}
-#best2010-movie{
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    scroll-behavior: smooth
-}
-#search-container{
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    scroll-behavior: smooth
 }
 
 
 .movie-genre{
     color: rgb(0 213 255);
-    font-size: 1.3rem;
-    margin-left: 1rem;
+    font-size: 1.6rem;
+    margin-left: 3vw;
+    margin-top: 5vh;
 }
 
 .movie-card{
@@ -339,6 +342,7 @@ a {
     font-size: 20px;
     margin-top: 1vh;
     overflow-y: scroll;
+    user-select: text;
 }
 .age-limit{
     color: rgb(252, 252, 252);
@@ -438,7 +442,7 @@ a {
     font-size: 33px;
     margin-top: 10vh;
     color: #037eb1;
-    background-color: #1418436e;
+    background-color: #16193b;
     padding: 1px 20px;
     margin-left: 5vw;
     border-radius: 9px;
@@ -452,10 +456,14 @@ a {
     cursor: pointer;
 }
 
+.social-footer i:hover{
+    color: #02d4fe;
+}
+
 .contact-wrapper{
     display: flex;
     justify-content: center;
-    height: 60vh;
+    padding-bottom: r;
 }
 
 .contact-form{
@@ -463,6 +471,8 @@ a {
     flex-direction: column;
     background-color: var(--secondary-color);
     padding: 2rem 5rem;
+    width: 36vw;
+    min-width: 300px;
 }
 
 .contact-form label{
@@ -473,9 +483,30 @@ a {
 
 .contact-form input{
     padding: 4px 13px;
-    border: 2px solid var(--primary-color);
-    border-radius: 2px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--primary-color);
 }
+
+.contact-form textarea{
+    margin-top: 1vh;
+    border-radius: 4px;
+    margin-bottom: 2vh;
+    max-width: 36vw;
+    max-height: 10vh;
+    padding: 1rem;
+    outline: none;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+#contact-button{
+    background-color: hsl(198deg 100% 48%);
+    margin-top: 1vh;
+    
+}
+
 
 
 
@@ -541,7 +572,7 @@ a {
     }
 
     .hero-infos h1{
-        font-size: 30px;
+        font-size: 46px;
     }
 
     .search{
@@ -581,6 +612,10 @@ a {
 
     .tittle-and-button{
         margin-bottom: 41vh;
+    }
+
+    .fa-user-circle{
+        margin-right: 0px;
     }
     
 }

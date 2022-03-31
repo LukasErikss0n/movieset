@@ -69,21 +69,21 @@
 
                 <label for="problem">What is it about?</label><br>
                 
-                <label for="problem">Problem on site</label><br>
-                <input type="radio" name="fav_language" value="problem">
-                <label for="account">Login to account</label>
+                <div class="radio-flex">
+                    <input type="radio" name="fav_language" value="problem">
+                    <label for="problem">Problem on site</label><br>
+                </div>
+               <div class="radio-flex">
                 <input type="radio" name="fav_language" value="account">
+                <label for="account">Login to account</label>
+               </div>
+                <div class="radio-flex">
+                    <input type="radio" name="fav_language" value="other" >
                 <label for="other">Other</label>
-                <input type="radio" name="fav_language" value="other" >
+                </div>
 
-
-
-                <textarea name="subject" placeholder="Description"></textarea>
-                <input type="button" onclick="alert('Hello World!')" value="Submit!">
-                <input type="reset">
-
-
-
+                <textarea name="subject" placeholder="Description" ></textarea>
+                <input type="submit" onclick="alert('Your information as been resived!')" value="Submit!" id ="contact-button">
             </form>
         </div>
     </main>

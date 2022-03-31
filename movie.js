@@ -141,6 +141,7 @@ searchSymbol.onclick = function (event) {
 
 function showSearchResultH2() {
   showH2.style.display = "block";
+
 }
 
 function hideSearchResultH2() {
@@ -167,3 +168,8 @@ document.body.onclick = function (event) {
     }
   }
 };
+
+document.body.onkeydown = function(event){
+  if(event.keycode == 27)
+  console.log("hej")
+}
