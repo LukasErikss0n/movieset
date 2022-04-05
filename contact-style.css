@@ -1,0 +1,109 @@
+.tabell-center{
+    display: flex;
+    justify-content: center;
+    height: 40vh;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+table{
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 13px;
+    width: 100%;
+}
+
+
+table th{
+    color: #ffe200;
+    font-size: 13px;
+    background-color: #171f4d7a;
+}
+
+table td{
+    text-align: center;
+}
+
+.platinum{
+    background-color: silver;
+}
+
+.diamond{
+    background-color: #02d4fe;
+}
+
+.gold{
+    background-color: gold;
+}
+
+.standard{
+    background-color: gray;
+}
+
+
+.contact-wrapper{
+    display: flex;
+    justify-content: left;
+    margin-left: 3vw;
+}
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    padding: 2rem 5rem;
+    width: 36vw;
+    min-width: 300px;
+}
+
+.contact-form label{
+    color: #11b1fa;
+    font-size: 14px;
+    margin-top: 1vh;
+}
+
+.contact-form input{
+    padding: 4px 13px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+.contact-form textarea{
+    margin-top: 1vh;
+    border-radius: 4px;
+    margin-bottom: 2vh;
+    max-width: 36vw;
+    max-height: 10vh;
+    padding: 1rem;
+    outline: none;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+#contact-button{
+    background-color: hsl(198deg 100% 48%);
+    margin-top: 1vh;
+    
+}
+
+
+@media only screen and (max-width: 768px){
+    .contact-form{
+        width: 100%;
+        margin: 4vw;
+    }
+
+    .contact-wrapper{
+        margin-left: 0;
+    }
+
+    .contact-form textarea{
+        max-width: 68vw;
+    }
+
+    .tabell-center{
+        margin: 4vw;
+    }
+}
