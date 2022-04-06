@@ -133,7 +133,6 @@ function doSearch() {
 let searchSymbol = document.getElementById("search-symbol");
 
 searchSymbol.onclick = function (event) {
-  console.log("hej");
   event.preventDefault();
 
   doSearch();
