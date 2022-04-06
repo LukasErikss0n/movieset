@@ -285,10 +285,11 @@ a {
     margin: 1vw 4vw;
 }
 
-.movie-backdrop{
+
+.movie-background-img{
     height: 54vh;
-    object-fit: cover;
-    object-position: center;
+    background-size: cover;
+    background-position: center;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom: 2px solid #ff0000d1;
@@ -306,7 +307,7 @@ a {
 .tittle-and-button{
     position: fixed;
     margin-left: 5vw;
-    margin-bottom: 30vh;
+    margin-top: 20vh;
 }
 
 .tittle{
@@ -563,10 +564,6 @@ a {
 
     #footer{
         margin-left: 8vw;
-    }
-
-    .tittle-and-button{
-        margin-bottom: 41vh;
     }
 
     .fa-user-circle{

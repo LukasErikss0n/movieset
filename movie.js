@@ -14,7 +14,6 @@ const willFerriBestMovie =
   "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&" +
   apiKey;
 
-
 const seconHero = document.getElementById("hero-section");
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
@@ -46,8 +45,6 @@ getApiMovies(bestDramaApiMovies, dramaContainer);
 const willFerriBestMovieContainer = document.getElementById("best2010-movie");
 getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 
-
-
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
     const {
@@ -69,13 +66,16 @@ function showMovies(movies, container) {
             <div class ="close-info">
              <p class ="close-info-p">X</p>
             </div>
-            <img class = "movie-backdrop" src="${
+            <div class = "movie-background-img" style="background-image: url(${
               backdropUrl + backdrop_path
-            }" alt="${title}">
+            })">
             <div class ="tittle-and-button">
-                <h2 class="tittle">${title}<h2>
-                <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
+              <h2 class="tittle">${title}<h2>
+              <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
             </div>
+            </div>
+      
+           
             <div class ="movie-overview-info">
                 <p class ="relase-date"><span class = ${getRatingColor(
                   vote_average
@@ -141,7 +141,6 @@ searchSymbol.onclick = function (event) {
 
 function showSearchResultH2() {
   showH2.style.display = "block";
-
 }
 
 function hideSearchResultH2() {
@@ -169,7 +168,6 @@ document.body.onclick = function (event) {
   }
 };
 
-document.body.onkeydown = function(event){
-  if(event.keycode == 27)
-  console.log("hej")
-}
+document.body.onkeydown = function (event) {
+  if (event.keycode == 27) console.log("hej");
+};
