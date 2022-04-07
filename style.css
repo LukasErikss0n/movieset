@@ -171,7 +171,7 @@ a {
 }
 .hero-infos h1{
     font-family: "bebas neue";
-    font-size: 30px;
+    font-size: 49px;
     color: #ffffff;
     font-weight: bolder;
     letter-spacing: 3px;
@@ -180,13 +180,13 @@ a {
     color: white;
     font-weight: bolder;
     border-radius: 4px;
-    padding: 5px 20px;
+    padding: 7px 24px;
     font-size: 20px;
 }
 .buttons-hompage{
     display: flex;
     margin-top: 4rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .button-black{

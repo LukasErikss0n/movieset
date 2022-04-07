@@ -130,6 +130,12 @@ function doSearch() {
   }
 }
 
+// Har försökt att fixa search men har inte lyckades ännu 
+// console.log(window.location)
+// let searchParams = new URLSearchParams(window.location.search)
+// let id = searchParams.get("id")
+// console.log(id)}
+
 let searchSymbol = document.getElementById("search-symbol");
 
 searchSymbol.onclick = function (event) {
