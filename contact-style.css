@@ -68,6 +68,7 @@ table td{
     border-radius: 4px;
     outline: none;
     background-color: var(--primary-color);
+    color: white;
 }
 
 .contact-form textarea{
@@ -80,6 +81,7 @@ table td{
     outline: none;
     background-color: var(--primary-color);
     border: 1px solid var(--primary-color);
+    color: white;
 }
 
 #contact-button{

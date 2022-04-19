@@ -107,7 +107,7 @@ function whoCanWatch(adult) {
   if (adult === true) {
     return "18+";
   } else {
-    return "3+";
+    return "13+";
   }
 }
 
@@ -134,7 +134,7 @@ function doSearch() {
 // console.log(window.location)
 // let searchParams = new URLSearchParams(window.location.search)
 // let id = searchParams.get("id")
-// console.log(id)}
+// console.log(id)
 
 let searchSymbol = document.getElementById("search-symbol");
 

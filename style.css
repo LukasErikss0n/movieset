@@ -30,6 +30,14 @@ section::-webkit-scrollbar-thumb {
     background: rgb(62, 108, 206);
     width: 10px;
 }
+.overview::-webkit-scrollbar-thumb{
+    background: #02d4fe;
+}
+.overview::-webkit-scrollbar {
+    height: 10px;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+}
 
 html {
     font-size: 62.5%;
@@ -107,8 +115,8 @@ a {
 }
   
 .nav-logo {
-    height: 2rem;
-    width: 10rem;
+    height: 4rem;
+    width: 14rem;
     object-fit: cover;
     object-position: center;
 }
@@ -152,21 +160,21 @@ a {
 
 }
 .hero-image{
-    background-image: linear-gradient(#00000026, #0000001f),url("img/judeus-samson-tI6m-AXpAsg-unsplash.jpg");
+    background-image: linear-gradient(#00000026, #0000001f),url("img/spiderman.jpg");
     background-size: cover;
     background-position: center;
-    height: 66vh;
+    height: 88vh;
     position: relative;
     top: -11vh;    
     -webkit-transition: 0.2s;
-    border-bottom: 4px solid #171f4d40;
+    width: 149vw;
 }
 .hero-infos{
     display: flex;
     justify-content: flex-start;
     margin-left: 10rem;
     align-items: center;
-    height: 58vh;
+    height: 96vh;
     font-family: "raleway";
 }
 .hero-infos h1{
@@ -184,13 +192,12 @@ a {
     font-size: 20px;
 }
 .buttons-hompage{
-    display: flex;
     margin-top: 4rem;
-    justify-content: space-evenly;
 }
 
 .button-black{
     background-color: black;
+    margin-right: 40px;
 }
 .button-blue{
     background-color: #02d4fe;
@@ -223,7 +230,11 @@ a {
     color: rgb(0 213 255);
     font-size: 1.6rem;
     margin-left: 3vw;
+}
+
+.top-margin{
     margin-top: 5vh;
+
 }
 
 .movie-card{
@@ -342,7 +353,7 @@ a {
     margin-left: 2vw;
     font-size: 20px;
     margin-top: 1vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     user-select: text;
 }
 .age-limit{
@@ -531,12 +542,18 @@ a {
         font-size: 46px;
     }
 
+    .hero-text{
+        color: white;
+        font-size: 18px;
+        width: 44vw;
+    }
+
     .search{
         border: 2px solid var(--primary-color);
     }
 
     .nav-logo{
-        height: 4rem;
+        height: 2rem;
         width: 17rem;
     }
 
