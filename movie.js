@@ -33,17 +33,12 @@ function getApiMovies(url, container) {
     .then(function (data) {
       console.log(data.results); //ta bort sen
       showMovies(data.results, container);
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Somthing whent wrong, please try again.");
     });
 }
-
-const popularContainer = document.getElementById("main-movie"); //skickar in vart en viss api ska hamna
-getApiMovies(popularApiMovies, popularContainer);
-
-const dramaContainer = document.getElementById("drama-movie");
-getApiMovies(bestDramaApiMovies, dramaContainer);
-
-const willFerriBestMovieContainer = document.getElementById("best2010-movie");
-getApiMovies(willFerriBestMovie, willFerriBestMovieContainer);
 
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
@@ -130,7 +125,7 @@ function doSearch() {
   }
 }
 
-// Har försökt att fixa search men har inte lyckades ännu 
+// Har försökt att fixa search men har inte lyckades ännu
 // console.log(window.location)
 // let searchParams = new URLSearchParams(window.location.search)
 // let id = searchParams.get("id")

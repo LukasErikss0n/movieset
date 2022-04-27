@@ -43,7 +43,7 @@ table td{
 
 .contact-wrapper{
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     margin-left: 3vw;
 }
 
@@ -53,7 +53,7 @@ table td{
     background-color: var(--secondary-color);
     padding: 2rem 5rem;
     width: 36vw;
-    min-width: 300px;
+    margin-bottom: 5vh;
 }
 
 .contact-form label{
@@ -90,7 +90,29 @@ table td{
     
 }
 
+.info-contact{
+    margin-top: 8vh;
+    margin-left: 1rem;
+    background-color: var(--secondary-color);
+    padding: 1rem 2rem;
+}
 
+.info-contact h2{
+    display: flex;
+    justify-content: center;
+    color: #11b1fa;
+    font-size: 45px;
+}
+.info-contact p{
+    width: 40vw;
+    font-size: 16px;
+    color: white;
+}
+
+.wrapper-footer-info{
+    border-top: 1px solid white;
+    margin-top: 5vh;
+}
 @media only screen and (max-width: 768px){
     .contact-form{
         width: 100%;
@@ -99,6 +121,9 @@ table td{
 
     .contact-wrapper{
         margin-left: 0;
+        justify-content: center;
+        flex-direction: column;
+
     }
 
     .contact-form textarea{
@@ -107,5 +132,12 @@ table td{
 
     .tabell-center{
         margin: 4vw;
+    }
+
+    .info-contact p{
+        margin-left: auto;
+        margin-right: auto;
+        width: 85vw;
+        font-size: 12px;
     }
 }

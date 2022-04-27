@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TimeWaster/home</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="contact-style.css">
+    <link rel="stylesheet" href="contact-style.css" />
     <script
-    src="https://kit.fontawesome.com/4b39a549d2.js"
-    crossorigin="anonymous"
-  ></script>
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io (4)/apple-touch-icon.png"> 
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io (4)/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io (4)/favicon-16x16.png">
-  <link rel="manifest" href="favicon_io (4)/site.webmanifest">
+      src="https://kit.fontawesome.com/4b39a549d2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon_io (4)/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon_io (4)/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon_io (4)/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon_io (4)/site.webmanifest" />
   </head>
   <body>
     <header class="header">
@@ -27,7 +41,7 @@
         /></a>
         <ul class="nav-menu">
           <li class="nav-item">
-            <a href="index.html" class="nav-link ">Home</a>
+            <a href="index.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
             <a href="search.html" class="nav-link">Search</a>
@@ -35,17 +49,7 @@
           <li class="nav-item">
             <a href="contact.html" class="nav-link side-show">Contact</a>
           </li>
-          <li class="nav-item search-logo">
-            <form id="form-search">
-              <input
-                type="search"
-                id="search"
-                class="search"
-                placeholder="Search"
-              />
-            </form>
-            <a href="#" class="nav-link"><i id = "search-symbol" class="fas fa-search"></i></a>
-          </li>
+          <li class="nav-item search-logo"></li>
           <li class="nav-item">
             <a href="#" class="nav-link"><i class="fas fa-bell"></i></a>
           </li>
@@ -61,65 +65,83 @@
       </nav>
     </header>
     <main>
-        <section>
-          <div class="tabell-center">
-            <table>
-              <tr>
-                <th>Level</th>
-                <th>Access</th>
-                <th>Price</th>
-              </tr>
-              <tr class="platinum">
-                <td>Platinum</td>
-                <td>Full package</td>
-                <td>$80/month</td>
-              </tr>
-              <tr class="diamond">
-                <td>Diamond</td>
-                <td>Original movies and shows.</td>
-                <td>$70/month</td>
-              </tr>
-              <tr class="gold">
-                <td>gold</td>
-                <td>Sponsored movies and shows.</td>
-                <td>$60/month</td>
-              </tr>
-              <tr class="standard">
-                <td>standard</td>
-                <td>Sponsored shows</td>
-                <td>$50/month</td>
-              </tr>
-            </table>
-          </div>
-        </section>
-        <section>
-          <div class="contact-wrapper">
-            <form class="contact-form">
-                <label for="fname">First Name:</label><br>
-                <input type="text" name="fname" placeholder="Ex) Lukas Eriksson">
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" placeholder="Ex) TimWaster@outlook.com">
+      <section>
+        <div class="tabell-center">
+          <table>
+            <tr>
+              <th>Level</th>
+              <th>Access</th>
+              <th>Price</th>
+            </tr>
+            <tr class="platinum">
+              <td>Platinum</td>
+              <td>Full package</td>
+              <td>$80/month</td>
+            </tr>
+            <tr class="diamond">
+              <td>Diamond</td>
+              <td>Original movies and shows.</td>
+              <td>$70/month</td>
+            </tr>
+            <tr class="gold">
+              <td>gold</td>
+              <td>Sponsored movies and shows.</td>
+              <td>$60/month</td>
+            </tr>
+            <tr class="standard">
+              <td>standard</td>
+              <td>Sponsored shows</td>
+              <td>$50/month</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+      <section>
+        <div class="contact-wrapper">
+          <form class="contact-form">
+            <label for="fname">First Name:</label><br />
+            <input type="text" name="fname" placeholder="Ex) Lukas Eriksson" />
+            <label for="email">Email:</label><br />
+            <input
+              type="email"
+              name="email"
+              placeholder="Ex) TimWaster@outlook.com"
+            />
 
-                <label for="problem">What is it about?</label><br>
-                
-                <div class="radio-flex">
-                    <input type="radio" name="fav_language" value="problem">
-                    <label for="problem">Problem on site</label><br>
-                </div>
-               <div class="radio-flex">
-                <input type="radio" name="fav_language" value="account">
-                <label for="account">Login to account</label>
-               </div>
-                <div class="radio-flex">
-                    <input type="radio" name="fav_language" value="other" >
-                <label for="other">Other</label>
-                </div>
+            <label for="problem">What is it about?</label><br />
 
-                <textarea name="subject" placeholder="Description" ></textarea>
-                <input type="submit" onclick="alert('Your information as been resived!')" value="Submit!" id ="contact-button">
-            </form>
+            <div class="radio-flex">
+              <input type="radio" name="fav_language" value="problem" />
+              <label for="problem">Problem on site</label><br />
+            </div>
+            <div class="radio-flex">
+              <input type="radio" name="fav_language" value="account" />
+              <label for="account">Login to account</label>
+            </div>
+            <div class="radio-flex">
+              <input type="radio" name="fav_language" value="other" />
+              <label for="other">Other</label>
+            </div>
+
+            <textarea name="subject" placeholder="Description"></textarea>
+            <input
+              type="submit"
+              onclick="alert('Your information as been resived!')"
+              value="Submit!"
+              id="contact-button"
+            />
+          </form>
+          <div class="info-contact">
+            <h2>Contact</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quam,
+              voluptas fugiat laudantium, ex eius, est quibusdam perferendis
+              molestiae magni atque vel quisquam veniam deserunt. Repudiandae
+              nesciunt molestiae cupiditate praesentium.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
     </main>
     <footer id="footer">
       <div class="wrapper-footer-info">
@@ -143,7 +165,12 @@
         </div>
         <div class="list-footer">
           <h3>TimeWaster</h3>
-          <p>TimWaster is a company that provides juser with movies from all categoreis with more than 5000 movies. We have a total off over 30 000 jusers that makes it posibel for us to make it as affordibel for you</p>
+          <p>
+            TimWaster is a company that provides juser with movies from all
+            categoreis with more than 5000 movies. We have a total off over 30
+            000 jusers that makes it posibel for us to make it as affordibel for
+            you
+          </p>
         </div>
         <div class="social-footer">
           <i class="fab fa-facebook"></i>
@@ -156,4 +183,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
