@@ -168,7 +168,7 @@ a {
     position: relative;
     top: -11vh;    
     transition: 0.2s;
-    width: 149vw;
+    width: 100vw;
 }
 .hero-infos{
     display: flex;
@@ -284,7 +284,7 @@ a {
 }
 
 .movie-information {
-    display: none;
+   display: block;
     position: fixed;
     top: 0;
     left: 0;
@@ -480,6 +480,10 @@ a {
     color: #02d4fe;
 }
 
+.runtime{
+    color: lightgray;
+    margin-left: 1vw;
+}
 
 
 
@@ -487,7 +491,7 @@ a {
 
 @media only screen and (max-width: 1190px){
     .wrapper-footer-info{
-        width: 95vw;
+        width: 100vw;
     }
 }
 
@@ -588,7 +592,7 @@ a {
     }
 
     #footer{
-        margin-left: 8vw;
+        margin: 1rem 2rem;
     }
 
     .fa-user-circle{

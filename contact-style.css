@@ -120,7 +120,6 @@ table td{
     }
 
     .contact-wrapper{
-        margin-left: 0;
         justify-content: center;
         flex-direction: column;
 
