@@ -143,6 +143,7 @@ search.onkeydown = function (event) {
 function doSearch() {
   if (search.value === "") {
     hideSearchResultH2();
+    showNoResultsMessage();
   } else {
     let searchTerm = search.value;
     const searchResult = searchUrl + searchTerm + "&" + apiKey;
@@ -166,11 +167,15 @@ searchSymbol.onclick = function (event) {
 };
 
 function showSearchResultH2() {
-  showH2.style.display = "block";
+  if (showH2) {
+    showH2.style.display = "block";
+  }
 }
 
 function hideSearchResultH2() {
-  showH2.style.display = "none";
+  if (showH2) {
+    showH2.style.display = "none";
+  }
 }
 
 document.body.onclick = function (event) {

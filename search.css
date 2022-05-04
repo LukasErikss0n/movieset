@@ -22,7 +22,6 @@
 #search-container{
     flex-wrap: wrap;
     justify-content: center;
-    height: 50vh;
 }
 
 
@@ -31,5 +30,12 @@
     position: relative;
     bottom: -5px;
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.293);
+}
+
+#no-result{
+    color: white;
+    font-size: 20px;
+    display: none;
+    margin-top: 10vh;
+    height: 30vh;
 }
