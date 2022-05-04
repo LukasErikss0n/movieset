@@ -340,6 +340,7 @@ a {
     font-size: 18px;
     background-color: #f00606;
     border-radius: 11px;
+    color: white;
 }
 
 .button-play:hover{
@@ -485,6 +486,11 @@ a {
     margin-left: 1vw;
 }
 
+.genres{
+    margin-left: 1vw;
+    color: white;
+}
+
 
 
 
@@ -499,7 +505,7 @@ a {
 @media only screen and (max-width: 768px) {
     .nav-menu {
       position: fixed;
-      left: -100%;
+      left: 112%;
       top: 4.7rem;
       flex-direction: column;
       background-color: var(--secondary-color);

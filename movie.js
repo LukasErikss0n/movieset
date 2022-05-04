@@ -3,17 +3,6 @@ const baseUrl = "https://api.themoviedb.org/3";
 const imgUrl = "https://image.tmdb.org/t/p/w500";
 const backdropUrl = "https://image.tmdb.org/t/p/original";
 
-const popularApiMovies =
-  baseUrl + "/discover/movie?sort_by=popularity.desc&" + apiKey; //Hämtar Api för det olika kategorierna för att använda datan
-const bestDramaApiMovies =
-  baseUrl +
-  "/discover/movie?with_genres=18&primary_release_year=2014&" +
-  apiKey;
-const willFerriBestMovie =
-  baseUrl +
-  "/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc&" +
-  apiKey;
-
 const seconHero = document.getElementById("hero-section");
 const seconPopular = document.getElementById("main-movie");
 const sectionDrama = document.getElementById("drama-movie");
@@ -40,49 +29,85 @@ function getApiMovies(url, container) {
     });
 }
 
+async function getApiMovieDetails(id) {
+  let apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=1a08c634ec1bc9d64558c15c3e88cdbf`;
+
+  console.log("Getting: " + apiUrl);
+
+  let apiInfo = await fetch(apiUrl);
+
+  let apiJsonInfo = await apiInfo.json();
+  showDetails(apiJsonInfo);
+
+  return apiJsonInfo;
+}
+
+function showDetails(data) {
+  console.log(data);
+  const {
+    title,
+    backdrop_path,
+    vote_average,
+    overview,
+    release_date,
+    adult,
+    id,
+    runtime,
+    genres,
+    homepage,
+  } = data;
+
+  const movieEl = document.createElement("div");
+  movieEl.classList.add("movie-information");
+  movieEl.setAttribute("data-id", id);
+  movieEl.innerHTML = `
+    <div class = "movie-information-card">
+    <div class ="close-info">
+      <p class ="close-info-p">X</p>
+    </div>
+    <div class = "movie-background-img" style="background-image: url(${
+      backdropUrl + backdrop_path
+    })">
+  <div class ="tittle-and-button">
+    <h2 class="tittle">${title}<h2>
+    <a href ="${homepage}" class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
+  </div>
+  </div>
+  <div class ="movie-overview-info">
+      <p class ="relase-date"><span class = ${getRatingColor(
+        vote_average
+      )}>${vote_average} Vote avrage</span> ${release_date}<span class="age-limit">${whoCanWatch(
+    adult
+  )}</span><span class="runtime">${runtime} minutes</span>
+  <span class ="genres">${genres[0].name}</span></p>
+      <p class ="overview">${overview}</p>
+     
+  </div>
+  </div>
+
+  
+  `;
+  document.body.appendChild(movieEl);
+}
+
 function showMovies(movies, container) {
   movies.forEach(function (movie) {
-    const {
-      title,
-      poster_path,
-      backdrop_path,
-      vote_average,
-      overview,
-      release_date,
-      adult,
-    } = movie; //kallar på datan som jag vill använda från arrayn
+    const { title, poster_path, id } = movie; //kallar på datan som jag vill använda från arrayn
     const movieEl = document.createElement("div");
     movieEl.classList.add("movie-card");
+    movieEl.setAttribute("data-id", id);
     movieEl.innerHTML = `
        
         <img class="movie-image" src="${imgUrl + poster_path}"alt="${title}"/>
-        <div class="movie-information">
-            <div class = "movie-information-card">
-            <div class ="close-info">
-             <p class ="close-info-p">X</p>
-            </div>
-            <div class = "movie-background-img" style="background-image: url(${
-              backdropUrl + backdrop_path
-            })">
-            <div class ="tittle-and-button">
-              <h2 class="tittle">${title}<h2>
-              <a class ="button-play"><i class="fas fa-play-circle"></i>Play</a>
-            </div>
-            </div>
-      
-           
-            <div class ="movie-overview-info">
-                <p class ="relase-date"><span class = ${getRatingColor(
-                  vote_average
-                )}>${vote_average} Vote avrage</span>Relase date: ${release_date}<span class="age-limit">${whoCanWatch(
-      adult
-    )}</span></p>
-                <p class ="overview">${overview}</p>
-               
-            </div>
-            </div>
-        </div>
+        
          `;
+
+    movieEl.onclick = function (event) {
+      document.body.style.overflowY = "hidden";
+      const id = event.target.parentElement.getAttribute("data-id");
+      getApiMovieDetails(id);
+      console.log();
+    };
 
     container.appendChild(movieEl); //här lägs html kod till ^ i en specifik kontainer(beror på vad jag skickar in i getApimovies andra parameter)
   });
@@ -99,6 +124,7 @@ function getRatingColor(vote) {
 }
 
 function whoCanWatch(adult) {
+  // har märkt att de´n inte riktigt har något syfte då inprinsip ingen är 18 + filmer men jag tycker ändp att den ska finnas ifall att
   if (adult === true) {
     return "18+";
   } else {
@@ -148,12 +174,7 @@ function hideSearchResultH2() {
 }
 
 document.body.onclick = function (event) {
-  if (event.target.classList.contains("movie-image")) {
-    let movieInformationDiv = event.target.parentElement.children[1];
-    movieInformationDiv.style.display = "inline";
-    movieInformationDiv.style.position = "fixed";
-    document.body.style.overflowY = "hidden";
-  } else if (event.target.classList.contains("close-info-p")) {
+  if (event.target.classList.contains("close-info-p")) {
     event.target.closest(".movie-information").style.display = "none";
     document.body.style.overflowY = "scroll";
     event.target.closest(".movie-information-card").style.position = "inherit";
@@ -166,8 +187,4 @@ document.body.onclick = function (event) {
       document.body.style.overflowY = "scroll";
     }
   }
-};
-
-document.body.onkeydown = function (event) {
-  if (event.keycode == 27) console.log("hej");
 };
