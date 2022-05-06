@@ -16,30 +16,23 @@ const search = document.getElementById("search");
 const showH2 = document.getElementById("search-h2");
 const popularGenre = document.getElementById("popular-genre");
 
-function getApiMovies(url, container) {
-  fetch(url)
-    .then((res) => res.json())
-    .then(function (data) {
-      console.log(data.results); //ta bort sen
-      showMovies(data.results, container);
-    })
-    .catch((err) => {
-      console.log(err);
-      alert("Somthing whent wrong, please try again.");
-    });
+async function getApiMovies(url, container) {
+  let apiUrl = url;
+  let apiInfo = await fetch(apiUrl);
+  let apiJsonInfo = await apiInfo.json();
+  console.log(apiJsonInfo.results);
+  showMovies(apiJsonInfo.results, container);
 }
 
 async function getApiMovieDetails(id) {
-  let apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=1a08c634ec1bc9d64558c15c3e88cdbf`;
+  let apiUrlId = `https://api.themoviedb.org/3/movie/${id}?api_key=1a08c634ec1bc9d64558c15c3e88cdbf`;
 
-  console.log("Getting: " + apiUrl);
+  let apiInfoId = await fetch(apiUrlId);
 
-  let apiInfo = await fetch(apiUrl);
+  let apiJsonInfoId = await apiInfoId.json();
+  showDetails(apiJsonInfoId);
 
-  let apiJsonInfo = await apiInfo.json();
-  showDetails(apiJsonInfo);
-
-  return apiJsonInfo;
+  return apiJsonInfoId;
 }
 
 function showDetails(data) {

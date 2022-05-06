@@ -161,13 +161,12 @@ a {
 
 }
 .hero-image{
-    background-image: linear-gradient(#00000026, #0000001f),url("img/spiderman.jpg");
+    background-image: linear-gradient(#00000026, #0000001f),url("/img/spiderman.jpg");
     background-size: cover;
     background-position: center;
     height: 88vh;
     position: relative;
     top: -11vh;    
-    transition: 0.2s;
     width: 100vw;
 }
 .hero-infos{
@@ -196,6 +195,7 @@ a {
     color: white;
     font-size: 18px;
     width: 44vw;
+    text-shadow:  13px 12px 20px black;
 }
 .buttons-hompage{
     margin-top: 4rem;
@@ -229,7 +229,8 @@ a {
     flex-direction: row;
     overflow-x: scroll;
     scroll-behavior: smooth;
-    width: 100%; /*behövs buggar på små skärm annars*/
+    width: 100%; 
+    overflow: auto;
 }
 
 
@@ -506,7 +507,7 @@ a {
 @media only screen and (max-width: 768px) {
     .nav-menu {
       position: fixed;
-      left: 112%;
+      left: -100%;
       top: 4.7rem;
       flex-direction: column;
       background-color: var(--secondary-color);
