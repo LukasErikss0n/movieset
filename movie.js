@@ -15,7 +15,7 @@ const formSearch = document.getElementById("form-search");
 const search = document.getElementById("search");
 const showH2 = document.getElementById("search-h2");
 const popularGenre = document.getElementById("popular-genre");
-
+console.log("det funkade med github")
 async function getApiMovies(url, container) {
   let apiUrl = url;
   let apiInfo = await fetch(apiUrl);
